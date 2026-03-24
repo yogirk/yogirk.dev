@@ -1,0 +1,3 @@
+[submodule "themes/explore"]
+	path = themes/explore
+	url = https://github.com/yogirk/explore.git

@@ -1,0 +1,23 @@
+{{- $tils := where .Site.RegularPages "Section" "til" -}}
+{{- $tils = $tils.ByDate.Reverse -}}
+{{- $latest := first 5 $tils -}}
+{{- if $latest -}}
+<div class="til-stream" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color, #eee);">
+  <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">
+    <a href="{{ "til/" | relLangURL }}" style="text-decoration: none;">Today I Learned</a>
+  </h2>
+  <ul style="list-style: none; padding: 0; margin: 0;">
+    {{- range $latest -}}
+    <li style="padding: 0.4rem 0;">
+      <a href="{{ .RelPermalink }}" style="text-decoration: none;">{{ .Title }}</a>
+      <time datetime="{{ .Date.Format "2006-01-02" }}" style="color: var(--text-secondary, #999); font-size: 0.85rem; margin-left: 0.5rem;">
+        {{ .Date.Format "Jan 2, 2006" }}
+      </time>
+    </li>
+    {{- end -}}
+  </ul>
+  <p style="margin-top: 0.75rem;">
+    <a href="{{ "til/" | relLangURL }}">View all &rarr;</a>
+  </p>
+</div>
+{{- end -}}

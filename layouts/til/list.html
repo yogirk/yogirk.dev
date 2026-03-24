@@ -1,0 +1,33 @@
+{{ define "main" }}
+<div class="container">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="page-content">
+        {{ . }}
+      </div>
+    {{ end }}
+  </header>
+
+  {{ $pages := .Pages.ByDate.Reverse }}
+  {{ if $pages }}
+    {{ range $pages.GroupByDate "2006" }}
+    <div class="til-year-group" style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-secondary, #666);">{{ .Key }}</h2>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        {{ range .Pages }}
+        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color, #eee);">
+          <a href="{{ .RelPermalink }}" style="text-decoration: none;">{{ .Title }}</a>
+          <time datetime="{{ .Date.Format "2006-01-02" }}" style="color: var(--text-secondary, #999); font-size: 0.85rem; margin-left: 0.5rem;">
+            {{ .Date.Format "Jan 2" }}
+          </time>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  {{ else }}
+    <p>No TILs yet. Check back soon.</p>
+  {{ end }}
+</div>
+{{ end }}

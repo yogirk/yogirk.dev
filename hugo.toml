@@ -1,0 +1,109 @@
+# ============================================================
+# Site Basics
+# ============================================================
+
+baseURL = "https://yogirk.dev/"
+languageCode = "en-us"
+title = "yogirk.dev"
+theme = "explore"
+
+summaryLength = 70
+
+# ============================================================
+# Outputs & Build
+# ============================================================
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+[build]
+  writeStats = true
+
+[pagination]
+  pagerSize = 10
+
+# ============================================================
+# Related Content
+# ============================================================
+
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
+# ============================================================
+# Theme Parameters
+# ============================================================
+
+[params]
+  author = "Yogi"
+  description = "Cloud, tools, open source, data, databases, books, and music."
+  logo = ""
+  tagline = "writes and write nots"
+  mainSections = ["posts"]
+
+# ---- UI Behavior ----
+
+  [params.ui]
+    stickyHeader = true
+    showSearch = true
+    searchEngine = "fuse"
+
+# ---- Visual Style ----
+
+  [params.style]
+    fontPreset = "inter"
+    containerMaxWidth = "1280px"
+    maxWidthCh = 75
+
+# ---- Sidebar & Widgets ----
+
+  [params.sidebar]
+    globalPosition = "right"
+    widgets = ["recent", "tags"]
+    recentCount = 5
+
+# ---- Post Lists ----
+
+  [params.list]
+    listView = "default"
+    showExcerpt = true
+
+# ---- Single Posts ----
+
+  [params.single]
+    showPrevNext = true
+    showRelated = true
+    relatedCount = 4
+
+    [params.single.toc]
+      enable = true
+      position = "inline"
+
+# ============================================================
+# Navigation Menu
+# ============================================================
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "til"
+    name = "TIL"
+    url = "/til/"
+    weight = 20
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/pages/about/"
+    weight = 30

@@ -1,0 +1,13 @@
+{{- $pages := .Pages.ByDate.Reverse -}}
+{{- $entries := slice -}}
+{{- range $pages -}}
+  {{- $entries = $entries | append (dict
+    "title" .Title
+    "date" (.Date.Format "2006-01-02")
+    "url" .RelPermalink
+    "tags" .Params.tags
+    "summary" .Summary
+    "content" .RawContent
+  ) -}}
+{{- end -}}
+{{- $entries | jsonify (dict "indent" "  ") -}}
