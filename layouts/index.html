@@ -11,9 +11,8 @@
   <div class="layout-grid {{ if or (eq $sidebarPosition "left") (eq $sidebarPosition "right") }}layout-grid--sidebar-{{ $sidebarPosition }}{{ end }}">
     <div class="main-content {{ if eq $sidebarPosition "left" }}main-content--sidebar-left{{ end }}">
       <div class="post-list">
-        {{ $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse "Type" "in" $cfg.mainSections) }}
         {{ $listView := $cfg.list.listView }}
-        {{ range $paginator.Pages }}
+        {{ range (where .Site.RegularPages.ByDate.Reverse "Section" "posts") }}
           {{ if eq $listView "compact" }}
             {{ partial "post/list-item-compact.html" . }}
           {{ else }}
@@ -21,9 +20,8 @@
           {{ end }}
         {{ end }}
       </div>
-      {{ partial "pagination.html" . }}
 
-      {{/* TIL stream — custom addition */}}
+      {{/* TIL stream */}}
       {{ partial "til-stream.html" . }}
     </div>
 

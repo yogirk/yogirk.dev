@@ -2,22 +2,29 @@
 {{- $tils = $tils.ByDate.Reverse -}}
 {{- $latest := first 5 $tils -}}
 {{- if $latest -}}
-<div class="til-stream" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color, #eee);">
-  <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">
-    <a href="{{ "til/" | relLangURL }}" style="text-decoration: none;">Today I Learned</a>
+<div class="til-stream post-list" style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color, #e5e7eb);">
+  <h2 class="til-stream-heading" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary, #6b7280); margin-bottom: 1rem;">
+    <a href="{{ "til/" | relLangURL }}" style="text-decoration: none; color: inherit;">Today I Learned</a>
   </h2>
-  <ul style="list-style: none; padding: 0; margin: 0;">
-    {{- range $latest -}}
-    <li style="padding: 0.4rem 0;">
-      <a href="{{ .RelPermalink }}" style="text-decoration: none;">{{ .Title }}</a>
-      <time datetime="{{ .Date.Format "2006-01-02" }}" style="color: var(--text-secondary, #999); font-size: 0.85rem; margin-left: 0.5rem;">
-        {{ .Date.Format "Jan 2, 2006" }}
-      </time>
-    </li>
-    {{- end -}}
-  </ul>
-  <p style="margin-top: 0.75rem;">
-    <a href="{{ "til/" | relLangURL }}">View all &rarr;</a>
-  </p>
+  {{- range $latest -}}
+  <article class="post-list-item post-list-item--compact">
+    <a href="{{ .RelPermalink }}" class="compact-post-link">
+      <span class="compact-post-title">{{ .Title }}</span>
+    </a>
+    <div class="compact-post-taxonomies">
+      {{ with .Params.tags }}
+        {{ $tags := . }}
+        <div class="compact-post-tags">
+          {{- range $i, $tag := $tags -}}
+            <a href="{{ "tags/" | relLangURL }}{{ $tag | urlize }}/" class="compact-post-tag">{{ $tag }}</a>{{ if lt (add $i 1) (len $tags) }}, {{ end }}
+          {{- end -}}
+        </div>
+      {{ end }}
+    </div>
+  </article>
+  {{- end -}}
+  <div style="margin-top: 0.75rem;">
+    <a href="{{ "til/" | relLangURL }}" style="font-size: 0.85rem; color: var(--text-secondary, #6b7280);">View all &rarr;</a>
+  </div>
 </div>
 {{- end -}}
