@@ -43,8 +43,8 @@ summaryLength = 70
 # ============================================================
 
 [params]
-  author = "Yogi"
-  description = "Cloud, tools, open source, data, databases, books, and music."
+  author = "yogirk"
+  description = "Cloud, data, OSS, databases, books, and music."
   logo = ""
   tagline = "writes and write nots"
   mainSections = ["posts"]
@@ -73,7 +73,7 @@ summaryLength = 70
 # ---- Post Lists ----
 
   [params.list]
-    listView = "default"
+    listView = "compact"
     showExcerpt = true
 
 # ---- Single Posts ----
@@ -85,7 +85,7 @@ summaryLength = 70
 
     [params.single.toc]
       enable = true
-      position = "inline"
+      position = "left"
 
 # ============================================================
 # Navigation Menu
