@@ -59,14 +59,14 @@ summaryLength = 70
 # ---- Visual Style ----
 
   [params.style]
-    fontPreset = "inter"
+    fontPreset = "google-sans"
     containerMaxWidth = "1280px"
     maxWidthCh = 75
 
 # ---- Sidebar & Widgets ----
 
   [params.sidebar]
-    globalPosition = "right"
+    globalPosition = "left"
     widgets = ["recent", "tags"]
     recentCount = 5
 
