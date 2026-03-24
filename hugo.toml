@@ -4,7 +4,7 @@
 
 baseURL = "https://yogirk.dev/"
 languageCode = "en-us"
-title = "yogirk.dev"
+title = "Binary Yoga"
 theme = "explore"
 
 summaryLength = 70
