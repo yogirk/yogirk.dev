@@ -44,7 +44,7 @@ summaryLength = 70
 
 [params]
   author = "yogirk"
-  description = "Cloud, data, OSS, databases, books, and music."
+  description = "Cloud, Data, OSS, AI, Books, and Music."
   logo = ""
   tagline = "writes and write nots"
   mainSections = ["posts"]
