@@ -47,7 +47,7 @@ summaryLength = 70
   description = "Cloud, Data, OSS, AI, Books, and Music."
   logo = ""
   tagline = "writes and write nots"
-  mainSections = ["posts"]
+  mainSections = ["posts", "til"]
 
 # ---- UI Behavior ----
 
@@ -75,6 +75,7 @@ summaryLength = 70
   [params.list]
     listView = "compact"
     showExcerpt = true
+    showSectionBadge = true
 
 # ---- Single Posts ----
 
