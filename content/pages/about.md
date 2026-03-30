@@ -7,5 +7,8 @@ There are people who produce knowledge and there are those who consume it. I am 
 
 This is a personal blog. I plan to write about cloud, building tools, agentic engineering, open source, data analytics, databases, and occasionally about good books and music. I believe in [Paul Graham's thesis](https://paulgraham.com/writes.html) : "a world divided into writes and write-nots". Writing is thinking with clarity. This blog is my public notebook.
 
-I have been using emdashes long before they acquired their AI notoriety-all content here is human-written. AI helps me build the tools, not the words. 
+I have been using emdashes long before they acquired their AI notoriety-all content here is human-written. AI helps me build the tools, not the words.
 
+---
+
+If you need to get in touch: [GitHub](https://github.com/yogirk) ・ [LinkedIn](https://www.linkedin.com/in/yogirk/) ・ [X](https://x.com/Ranjeeth)
