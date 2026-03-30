@@ -2,8 +2,9 @@
 title: "About"
 ---
 
-This is a personal blog. I write about Cloud, building tools, open source, Data Analytics, Databases, and occasionally about good books and music.
+There are people who produce knowledge and there are those who consume it. I am the latter. I am trying to build things I wish had always existed, primarily to amuse myself and as a way of learning. If you find any of this useful, that's a bonus.
 
-I believe in Paul Graham's thesis — there will be "Writes" and "Write Nots." Writing is thinking with clarity. This blog is my public notebook.
+This is a personal blog. I plan to write about cloud, building tools, agentic engineering, open source, data analytics, databases, and occasionally about good books and music. I believe in [Paul Graham's thesis](https://paulgraham.com/writes.html) : "a world divided into writes and write-nots". Writing is thinking with clarity. This blog is my public notebook.
 
-All content here is human-written. AI helps me build the tools, not the words.
+I have been using emdashes long before they acquired their AI notoriety-all content here is human-written. AI helps me build the tools, not the words. 
+
