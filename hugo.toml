@@ -46,7 +46,7 @@ summaryLength = 70
   author = "yogirk"
   description = "Cloud, Data, OSS, AI, Books, and Music."
   logo = ""
-  tagline = "writes and write nots"
+  tagline = ""
   mainSections = ["posts", "til"]
 
 # ---- UI Behavior ----
@@ -67,7 +67,7 @@ summaryLength = 70
 
   [params.sidebar]
     globalPosition = "left"
-    widgets = ["recent", "tags"]
+    widgets = ["recent", "categories", "tags"]
     recentCount = 5
 
 # ---- Post Lists ----

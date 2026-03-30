@@ -1,5 +1,6 @@
 ---
 title: "About"
+toc: false
 ---
 
 There are people who produce knowledge and there are those who consume it. I am the latter. I am trying to build things I wish had always existed, primarily to amuse myself and as a way of learning. If you find any of this useful, that's a bonus.
