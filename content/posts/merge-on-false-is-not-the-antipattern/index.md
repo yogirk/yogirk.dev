@@ -76,7 +76,7 @@ MERGE ON FALSE benefits the _most_ from clustering because it relies entirely on
 
 I also tested `MERGE ON FALSE ... WHEN NOT MATCHED BY SOURCE THEN DELETE` without any filter. On the clustered table, it scanned 768 MB and deleted 5 million rows. That's the "replace everything with source" behavior — and it's a full table scan no matter what.
 
-{{< callout type="warning" >}}
+{{< callout type="info" >}}
 This is the actual anti-pattern. Not ON FALSE, not MERGE, but **NOT MATCHED BY SOURCE without a partition/cluster-aligned predicate**.
 {{< /callout >}}
 
