@@ -3,7 +3,7 @@ title: "Why Terminal TUI Apps Can't Have Both Scroll and Text Selection"
 date: 2026-03-24
 draft: false
 description: ""
-tags: ["terminal", "tui", "bubbletea", "go", "ux", "cascade"]
+tags: ["Terminal", "TUI", "Bubbletea", "Go", "UX", "Cascade"]
 categories: ["Engineering"]
 summary: ""
 toc: true

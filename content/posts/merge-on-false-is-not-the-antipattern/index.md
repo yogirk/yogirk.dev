@@ -3,7 +3,7 @@ title: "MERGE ON FALSE Is Not the Anti-Pattern You Think It Is"
 date: 2026-04-04
 draft: false
 description: "The common advice says avoid MERGE ON FALSE in BigQuery. Empirical testing says the real problem is somewhere else."
-tags: ["bigquery", "snowflake", "sql", "merge", "data-engineering", "til"]
+tags: ["BigQuery", "Snowflake", "SQL", "MERGE", "Data Engineering", "TIL", "GCP"]
 categories: ["Data Engineering"]
 summary: "I set out to prove MERGE ON FALSE is an anti-pattern in BigQuery. The data told a different story. The real culprit is unclustered tables and unscoped delete clauses."
 toc: true

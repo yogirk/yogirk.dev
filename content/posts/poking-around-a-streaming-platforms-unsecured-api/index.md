@@ -3,7 +3,7 @@ title: "Poking around a streaming platform's unsecured API"
 date: 2026-03-09
 draft: false
 description: ""
-tags: ["api-design", "security", "web-scraping", "architecture"]
+tags: ["API Design", "Security", "Web Scraping", "Architecture"]
 categories: ["Engineering"]
 summary: ""
 toc: true

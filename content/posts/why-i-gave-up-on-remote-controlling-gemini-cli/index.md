@@ -3,7 +3,7 @@ title: "Why I Gave Up on Remote-Controlling Gemini CLI (With a Working Prototype
 date: 2026-04-01
 draft: false
 description: ""
-tags: ["gemini-cli", "claude-code", "architecture", "mcp", "pwa", "developer-tools"]
+tags: ["Gemini CLI", "Claude Code", "Architecture", "MCP", "PWA", "Developer Tools"]
 categories: ["Engineering"]
 summary: ""
 toc: true
