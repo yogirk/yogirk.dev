@@ -6,7 +6,7 @@ description: "Building is how I learn. The tools are often a side effect; the re
 tags: ["Building", "Personal"]
 categories: ["Essays"]
 summary: "Using a tool teaches you the tool. Building your own teaches you the domain. That is why I keep making things, even when something usable already exists."
-toc: false
+toc: true
 ---
 ## We shall not cease from exploration...! 
 I ran into [emdash](https://emdashcms.com/) yesterday on HN. I am neutral about the product itself, never did like Wordpress way of doing things before. However, I found their [Learning in Public](https://emdashcms.com/posts/learning-in-public) post and it articulated something I had already been feeling for a while.
