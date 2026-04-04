@@ -1,5 +1,5 @@
 ---
-title: "Why I build things"
+title: "Why I Build Things"
 date: 2026-04-04
 draft: false
 description: "Building is how I learn. The tools are often a side effect; the real output is domain understanding."
