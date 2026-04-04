@@ -1,5 +1,5 @@
 ---
-title: "MERGE ON FALSE Is Not the Anti-Pattern You Think It Is"
+title: "'Merge On False' Is Not the Anti-Pattern You Think It Is"
 date: 2026-04-04
 draft: false
 description: "The common advice says avoid MERGE ON FALSE in BigQuery. Empirical testing says the real problem is somewhere else."
@@ -19,9 +19,9 @@ Then I created a test dataset and ran the queries. The results disagreed.
 
 If you want to reproduce this and follow along, all the SQL scripts are in [bq-merge-on-false](https://github.com/yogirk/blog-code/tree/master/bq-merge-on-false). Replace `YOUR_PROJECT` with your GCP project ID and run them in order.
 
-Target table: 5M rows, 10 carriers, 30 days of `load_date`. 
-Source batch: 10K new rows for `CARRIER_1` on `2026-03-15`. 
-The task: replace the CARRIER_1/2026-03-15 slice with the incoming batch.
+- Target table: 5M rows, 10 carriers, 30 days of `load_date`. 
+- Source batch: 10K new rows for `CARRIER_1` on `2026-03-15`. 
+- The task: replace the CARRIER_1/2026-03-15 slice with the incoming batch.
 
 I tested two versions of the target table:
 - **Clustered**: `PARTITION BY load_date`, `CLUSTER BY carrier_id`
@@ -46,9 +46,8 @@ MERGE ON FALSE was the cheapest pattern (!!!). Not the worst, the _cheapest_. It
 
 I looked at the query plans to understand why.
 
-**MERGE ON FALSE** produced a 6-stage plan. Stage 0 read only 50,000 rows. BQ pushed the `carrier_id = 'CARRIER_1' AND load_date = '2026-03-15'` predicates from the NOT MATCHED BY SOURCE clause into the input scan as partition + cluster pruning filters. Since `ON FALSE` means there's no join to perform, BQ skipped the hash-join entirely and just processed the filtered delete and insert as separate operations.
-
-**Keyed MERGE** produced a 9-stage plan. Stage 1 read 5,010,000 rows — the entire target. The join key `ON T.record_id = S.record_id` doesn't align with the partition key (`load_date`) or cluster key (`carrier_id`), so BQ couldn't prune. It had to read every row to perform the hash join, even though the NOT MATCHED BY SOURCE clause had the same partition filter.
+1. **MERGE ON FALSE** produced a 6-stage plan. Stage 0 read only 50,000 rows. BQ pushed the `carrier_id = 'CARRIER_1' AND load_date = '2026-03-15'` predicates from the NOT MATCHED BY SOURCE clause into the input scan as partition + cluster pruning filters. Since `ON FALSE` means there's no join to perform, BQ skipped the hash-join entirely and just processed the filtered delete and insert as separate operations.
+2. **Keyed MERGE** produced a 9-stage plan. Stage 1 read 5,010,000 rows — the entire target. The join key `ON T.record_id = S.record_id` doesn't align with the partition key (`load_date`) or cluster key (`carrier_id`), so BQ couldn't prune. It had to read every row to perform the hash join, even though the NOT MATCHED BY SOURCE clause had the same partition filter.
 
 The ON FALSE eliminated the join. That was the advantage. No join means BQ doesn't need to read the target for matching purposes — it only reads whatever the delete filter touches.
 
