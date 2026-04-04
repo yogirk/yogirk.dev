@@ -84,10 +84,10 @@ This is the actual anti-pattern. Not ON FALSE, not MERGE, but **NOT MATCHED BY S
 I had a client pipeline that went through a similar optimization journey. The original was a Snowflake-style medallion pattern (BLK → STG → EXC → TGT) with separate DELETE + INSERT at each stage. Twelve-plus BQ jobs, 35 seconds. 
 
 The progression:
-- **Pass 1** (views instead of intermediate tables): 12 sec — fewer jobs, fewer writes
-- **Pass 2** (temp tables): 14 sec — materialization overhead offset the wins
-- **Pass 3** (single temp table + DELETE/INSERT with clustering): ~8 sec
-- **Pass 4** (inline CTE + keyed MERGE, 3 jobs, clustering on DATASOURCE_KEY): ~8 sec
+- **Original**: 35 sec — stage-heavy medallion, 12+ BQ jobs
+- **Attempt 1** (views instead of intermediate tables): 12 sec — fewer jobs, fewer writes
+- **Attempt 2** (temp tables): 14 sec — materialization overhead offset the wins
+- **Attempt 3** (inline CTE + keyed MERGE, 3 jobs, clustering on DATASOURCE_KEY): ~8 sec
 
 Two things stood out:
 
