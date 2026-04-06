@@ -91,7 +91,6 @@ capitalizeListTitles = false
 
     [params.single.toc]
       enable = true
-      position = "left"
 
 # ============================================================
 # Navigation Menu
