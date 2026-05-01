@@ -17,7 +17,7 @@ Then I created a test dataset and ran the queries. The results disagreed.
 
 ## The Setup
 
-If you want to reproduce this and follow along, all the SQL scripts are in [bq-merge-on-false](https://github.com/yogirk/blog-code/tree/master/bq-merge-on-false). Replace `YOUR_PROJECT` with your GCP project ID and run them in order.
+If you want to reproduce this and follow along, all the SQL scripts are in [bq-merge-on-false](https://github.com/yogirk/yogirk.dev/tree/master/code/bq-merge-on-false). Replace `YOUR_PROJECT` with your GCP project ID and run them in order.
 
 - Target table: 5M rows, 10 carriers, 30 days of `load_date`. 
 - Source batch: 10K new rows for `CARRIER_1` on `2026-03-15`. 
